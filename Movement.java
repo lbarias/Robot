@@ -4,9 +4,9 @@
  * the toy until it has first been placed in a legal spot
  * on the 5*5 plane.
  */
-public class Movement {
-    Robot robot = new Robot();
-    Boolean isPlaced = false;
+class Movement {
+    private Robot robot = new Robot();
+    private Boolean isPlaced = false;
 
     //places robot on the board, if location is legal
     void Place(int locationx, int locationy, String face){
@@ -41,14 +41,19 @@ public class Movement {
     void Left() {
         if (isPlaced) {
             try {
-                if (robot.f.equals("NORTH")) {
-                    robot.f = "WEST";
-                } else if (robot.f.equals("WEST")) {
-                    robot.f = "SOUTH";
-                } else if (robot.f.equals("SOUTH")) {
-                    robot.f = "EAST";
-                } else {
-                    robot.f = "NORTH";
+                switch (robot.f) {
+                    case "NORTH":
+                        robot.f = "WEST";
+                        break;
+                    case "WEST":
+                        robot.f = "SOUTH";
+                        break;
+                    case "SOUTH":
+                        robot.f = "EAST";
+                        break;
+                    default:
+                        robot.f = "NORTH";
+                        break;
                 }
             } catch (NullPointerException e) {
                 System.out.println("Robot is not on table.");
@@ -60,14 +65,19 @@ public class Movement {
         if (isPlaced) {
 
             try {
-                if (robot.f.equals("NORTH")) {
-                    robot.f = "EAST";
-                } else if (robot.f.equals("EAST")) {
-                    robot.f = "SOUTH";
-                } else if (robot.f.equals("SOUTH")) {
-                    robot.f = "WEST";
-                } else {
-                    robot.f = "NORTH";
+                switch (robot.f) {
+                    case "NORTH":
+                        robot.f = "EAST";
+                        break;
+                    case "EAST":
+                        robot.f = "SOUTH";
+                        break;
+                    case "SOUTH":
+                        robot.f = "WEST";
+                        break;
+                    default:
+                        robot.f = "NORTH";
+                        break;
                 }
             } catch (NullPointerException e) {
                 System.out.println("Robot is not on table.");
