@@ -144,4 +144,17 @@ public class RobotTest {
         String report = robot.Report();
         Assertions.assertEquals(report, "4,4,NORTH");
     }
+    //Test 13: Check if robot is not placed, no movement is done
+    // and it wont affect future movement
+    @Test
+    public void testRobotTest13() throws Exception{
+        Movement robot = new Movement();
+        robot.Move();
+        robot.Left();
+        robot.Right();
+        robot.Place( 3,4,"WEST");
+        robot.Move();
+        String report = robot.Report();
+        Assertions.assertEquals(report, "2,4,WEST");
+    }
 }
